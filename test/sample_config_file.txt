@@ -1,0 +1,10 @@
+Food/Drink=KOKO CHICKEN
+Food/Drink=STARBUCKS
+Food/Drink=MITSUWA-SANUKI
+Groceries=TRADER JOE'S
+Groceries=RITE AID
+Groceries=LOS ANGELES AFB COMM
+Groceries=COSTCO WHSE
+Groceries=MITSUWA MRKTPLACE
+Gas/Auto=GAS
+Shopping=Amazon.com
