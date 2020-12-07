@@ -1,6 +1,7 @@
 import os
 import logging
 from datetime import datetime
+from subprocess import Popen
 from typing import List, Optional
 from tkinter.filedialog import askopenfiles
 
@@ -19,7 +20,7 @@ DEFAULT_CONFIG_FILE_PATH = os.path.join(WORKING_DIR, "config.txt")
 
 
 def main(statement_paths: Optional[List[str]] = None, output_dir: str = DEFAULT_OUTPUT_DIR,
-         config_file_path: str = DEFAULT_CONFIG_FILE_PATH):
+         config_file_path: str = DEFAULT_CONFIG_FILE_PATH, open_output_file_at_the_end=True):
     if not os.path.isfile(config_file_path):
         raise ConfigFileNotFoundError
 
@@ -53,6 +54,9 @@ def main(statement_paths: Optional[List[str]] = None, output_dir: str = DEFAULT_
     output_writer.write_to_file(output_file_path)
 
     print(f"Combined statement: {output_file_path}")
+
+    if open_output_file_at_the_end:
+        Popen(output_file_path, shell=True)
 
     return 0
 
