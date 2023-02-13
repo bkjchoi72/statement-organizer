@@ -14,7 +14,7 @@ from output_writer import OutputWriter
 from statement import Statement
 
 HOME_DIR = os.path.expanduser("~")
-WORKING_DIR = os.path.join(HOME_DIR, "Desktop", "statement_organizer")
+WORKING_DIR = os.path.join(HOME_DIR, "OneDrive", "Desktop", "statement_organizer")
 DEFAULT_OUTPUT_DIR = os.path.join(WORKING_DIR, "combined_statements")
 DEFAULT_CONFIG_FILE_PATH = os.path.join(WORKING_DIR, "config.txt")
 
