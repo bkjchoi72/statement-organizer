@@ -1,11 +1,18 @@
 # statement-organizer
 
+## Requirements
+python 3.10.x
+
+python3-tk
+
+`sudo apt-get install python3-tk`
+
 ## Creating a config file
-- Create a directory called ~/Desktop/statement_organizer
+- Create a directory called ~/statement_organizer
 - Create a file called `config.txt` in the directory created above
   - Create rules in the config (example below)
 
-## Exmple config file
+## Example config file
 ```
 Food/Drink=CHICKEN
 Food/Drink=STARBUCKS
@@ -142,10 +149,17 @@ Personal=EDUCATIVEINC
 ```
 
 ## How to build an executable
+REQUIREMENT: pyinstaller
+
+
 (from the main repo directory)
+```
 make build
+```
 
 This will create a dist/ and build/ directories. The executable is located inside the /dist directory
+
+NOTE: You must build from the same OS architecture as the target architecture
 
 ## How to run tests
 make test

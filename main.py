@@ -14,7 +14,7 @@ from output_writer import OutputWriter
 from statement import Statement
 
 HOME_DIR = os.path.expanduser("~")
-WORKING_DIR = os.path.join(HOME_DIR, "Desktop", "statement_organizer")
+WORKING_DIR = os.path.join(HOME_DIR, "statement_organizer")
 DEFAULT_OUTPUT_DIR = os.path.join(WORKING_DIR, "combined_statements")
 DEFAULT_CONFIG_FILE_PATH = os.path.join(WORKING_DIR, "config.txt")
 
@@ -22,7 +22,7 @@ DEFAULT_CONFIG_FILE_PATH = os.path.join(WORKING_DIR, "config.txt")
 def main(statement_paths: Optional[List[str]] = None, output_dir: str = DEFAULT_OUTPUT_DIR,
          config_file_path: str = DEFAULT_CONFIG_FILE_PATH, open_output_file_at_the_end=True):
     if not os.path.isfile(config_file_path):
-        raise ConfigFileNotFoundError
+        raise ConfigFileNotFoundError(f"Config file not found at {config_file_path}")
 
     if not statement_paths:
         selected_files = askopenfiles(title="Choose one or more bank statements in CVS format",
