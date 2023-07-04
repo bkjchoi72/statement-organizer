@@ -1,5 +1,6 @@
 import os
 import logging
+import sys
 from datetime import datetime
 from subprocess import Popen
 from typing import List, Optional
@@ -12,6 +13,8 @@ from enumeration.bank import Bank
 from exceptions import UnknownStatementError, ConfigFileNotFoundError
 from output_writer import OutputWriter
 from statement import Statement
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 HOME_DIR = os.path.expanduser("~")
 WORKING_DIR = os.path.join(HOME_DIR, "statement_organizer")
