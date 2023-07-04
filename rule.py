@@ -19,6 +19,6 @@ class Rule:
     def satisfies(self, description: str) -> bool:
         for substring in self.substrings:
             if substring.lower().strip() in description.lower().strip():
-                logging.debug(f"{description.lower().strip()} matches {substring.lower().strip()}")
+                logging.debug(f"{description} matches {substring.lower().strip()}")
                 return True
         return False
