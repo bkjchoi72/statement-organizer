@@ -14,6 +14,8 @@ def test_sample_statements_are_categorized():
     assert categorizer.get_category("TRADER JOE'S #119") == Category.GROCERIES
     assert categorizer.get_category("STARBUCKS STORE 49208") == Category.FOOD_AND_DRINK
     assert categorizer.get_category("KOKO CHICKEN &amp; BBQ") == Category.FOOD_AND_DRINK
+    assert categorizer.get_category("Lowe's") == Category.HOUSE
+    assert categorizer.get_category("SOME_UNIDENTIFIED_DESCRIPTION") == Category.UNIDENTIFIED
     assert categorizer.get_category("SOME_UNIDENTIFIED_DESCRIPTION") == Category.UNIDENTIFIED
 
 
@@ -23,6 +25,7 @@ def test_all_transactions_in_category_are_returned():
         Transaction(date="_", description="COSTCO WHSE #0479", amount=0.0),
         Transaction(date="_", description="TRADER JOE'S #119", amount=0.0),
         Transaction(date="_", description="Payment Thank You - Web", amount=0.0),
+        Transaction(date="_", description="Lowe's", amount=0.0),
     ]
     categorizer = Categorizer(SAMPLE_CONFIG_FILE_PATH, transactions)
 
@@ -31,6 +34,7 @@ def test_all_transactions_in_category_are_returned():
     assert len(category_to_transactions[Category.GROCERIES]) == 2
     assert len(category_to_transactions[Category.GAS_AND_AUTO]) == 1
     assert len(category_to_transactions[Category.UNIDENTIFIED]) == 1
+    assert len(category_to_transactions[Category.HOUSE]) == 1
 
 
 def test_transactions_are_sorted_by_date():

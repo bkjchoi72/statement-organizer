@@ -8,3 +8,4 @@ Groceries=COSTCO WHSE
 Groceries=MITSUWA MRKTPLACE
 Gas/Auto=GAS
 Shopping=Amazon.com
+House=Lowe's

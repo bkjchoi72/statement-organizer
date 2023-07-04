@@ -9,4 +9,5 @@ class Category(Enum):
     GAS_AND_AUTO = "Gas/Auto"
     TRAVEL_AND_ENTERTAINMENT = "Travel/Entertainment"
     PERSONAL = "Personal"
+    HOUSE = "House"
     UNIDENTIFIED = "Unidentified"
