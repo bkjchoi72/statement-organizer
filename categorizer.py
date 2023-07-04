@@ -43,6 +43,7 @@ class Categorizer:
     def get_category(self, description: str) -> Category:
         for rule in self.config_key_to_rule.values():
             if rule.satisfies(description):
+                logging.debug(f"{description} matches {rule}")
                 return rule.category
         logging.warning(f"Unable to identify the category for the given description: {description}. Returning {Category.UNIDENTIFIED.value}")
         return Category.UNIDENTIFIED
