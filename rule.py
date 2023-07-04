@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 from enumeration.category import Category
@@ -18,5 +19,6 @@ class Rule:
     def satisfies(self, description: str) -> bool:
         for substring in self.substrings:
             if substring.lower().strip() in description.lower().strip():
+                logging.debug(f"{description.lower().strip()} matches {substring.lower().strip()}")
                 return True
         return False
