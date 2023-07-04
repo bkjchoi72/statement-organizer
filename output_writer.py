@@ -29,6 +29,8 @@ class OutputWriter:
             "",
             Category.PERSONAL.value, self.KEY_AMOUNT, self.KEY_DATE,
             "",
+            Category.HOUSE.value, self.KEY_AMOUNT, self.KEY_DATE,
+            "",
             Category.UNIDENTIFIED.value, self.KEY_AMOUNT, self.KEY_DATE,
         ]
         with open(outfile_path, "w", newline="") as csvfile:
@@ -43,6 +45,7 @@ class OutputWriter:
                 gas_and_auto_transaction, \
                 travel_and_entertainment, \
                 personal_transaction, \
+                house_transaction, \
                 unidentified_transaction in itertools.zip_longest(
                     self.category_to_transactions[Category.FOOD_AND_DRINK],
                     self.category_to_transactions[Category.GROCERIES],
@@ -51,6 +54,7 @@ class OutputWriter:
                     self.category_to_transactions[Category.GAS_AND_AUTO],
                     self.category_to_transactions[Category.TRAVEL_AND_ENTERTAINMENT],
                     self.category_to_transactions[Category.PERSONAL],
+                    self.category_to_transactions[Category.HOUSE],
                     self.category_to_transactions[Category.UNIDENTIFIED],
                     fillvalue=None,
             ):
@@ -83,6 +87,10 @@ class OutputWriter:
                         self.get_description_or_empty_str(personal_transaction),
                         self.get_amount_or_empty_str(personal_transaction),
                         self.get_date_or_empty_str(personal_transaction),
+                        "",
+                        self.get_description_or_empty_str(house_transaction),
+                        self.get_amount_or_empty_str(house_transaction),
+                        self.get_date_or_empty_str(house_transaction),
                         "",
                         self.get_description_or_empty_str(unidentified_transaction),
                         self.get_amount_or_empty_str(unidentified_transaction),
